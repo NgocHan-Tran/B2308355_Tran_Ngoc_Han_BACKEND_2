@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
-const contactsRouter = require("./app/routes/contact.route"); 
-const ContactService = require("./app/services/contact.service");
+const repairRouter = require("./app/routes/repair.route"); 
+const RepairService = require("./app/services/repair.service");
 const MongoDB = require('./app/utils/mongodb.util')
 const ApiError = require("./app/api-error");
 
@@ -9,9 +9,9 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use("/api/contacts", contactsRouter);
+app.use("/api/repair", repairRouter);
 
-app.use("/api/contacts", contactsRouter);
+app.use("/api/repair", repairRouter);
 
 //handle 404 response 
 app.use((req, res, next) => {
@@ -33,7 +33,7 @@ app.use((error, req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-    res.json({message: "Welcome to contact book application."});
+    res.json({message: "Chào mừng bạn đến với ứng dụng đăng ký sửa chữa thiết bị"});
 });
 
 module.exports = app;
